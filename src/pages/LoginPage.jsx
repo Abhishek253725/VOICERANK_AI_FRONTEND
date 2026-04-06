@@ -43,9 +43,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex">
+    <div className="flex min-h-screen">
       {/* LEFT – Brand Panel */}
-      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden mesh-bg flex-col justify-between p-12">
+      <div className="relative flex-col justify-between hidden p-12 overflow-hidden lg:flex lg:w-1/2 mesh-bg">
         {/* Floating orbs */}
         {PARTICLE_POS.map((p, i) => (
           <div
@@ -57,34 +57,34 @@ export default function LoginPage() {
 
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-white/20 glass rounded-xl flex items-center justify-center">
+            <div className="flex items-center justify-center w-10 h-10 bg-white/20 glass rounded-xl">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
               </svg>
             </div>
-            <span className="text-white text-xl font-display font-bold tracking-wide">VoiceRank AI</span>
+            <span className="text-xl font-bold tracking-wide text-white font-display">VoiceRank AI</span>
           </div>
-          <p className="text-white/60 text-sm font-body">Student Grievance Prioritization</p>
+          <p className="text-sm text-white/60 font-body">Student Grievance Prioritization</p>
         </div>
 
         <div className="relative z-10 space-y-8">
           <div>
-            <h1 className="text-5xl font-display font-bold text-white leading-tight mb-4">
+            <h1 className="mb-4 text-5xl font-bold leading-tight text-white font-display">
               Raise Your<br />
               <span className="text-indigo-200">Voice.</span><br />
               Be Heard.
             </h1>
-            <p className="text-white/70 text-lg font-body leading-relaxed">
+            <p className="text-lg leading-relaxed text-white/70 font-body">
               Your campus complaints, powered by AI. Real priorities, real action, real change.
             </p>
           </div>
 
           <div className="space-y-4">
             {FEATURES.map((f, i) => (
-              <div key={i} className="flex items-center gap-3 glass rounded-xl px-4 py-3 animate-slide-up"
+              <div key={i} className="flex items-center gap-3 px-4 py-3 glass rounded-xl animate-slide-up"
                 style={{ animationDelay: `${i * 0.1 + 0.2}s` }}>
                 <div className="text-indigo-200">{f.icon}</div>
-                <span className="text-white/90 text-sm font-body">{f.text}</span>
+                <span className="text-sm text-white/90 font-body">{f.text}</span>
               </div>
             ))}
           </div>
@@ -93,39 +93,34 @@ export default function LoginPage() {
         <div className="relative z-10 flex items-center gap-3">
           <div className="flex -space-x-2">
             {['J','A','M','S'].map((l,i) => (
-              <div key={i} className="w-8 h-8 glass rounded-full flex items-center justify-center text-white text-xs font-bold border-2 border-white/30">
+              <div key={i} className="flex items-center justify-center w-8 h-8 text-xs font-bold text-white border-2 rounded-full glass border-white/30">
                 {l}
               </div>
             ))}
           </div>
-          <p className="text-white/70 text-sm">Trusted by <strong className="text-white">2,400+</strong> students</p>
+          <p className="text-sm text-white/70">Trusted by <strong className="text-white">2,400+</strong> students</p>
         </div>
       </div>
 
       {/* RIGHT – Login Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-slate-50 dark:bg-slate-950">
+      <div className="flex items-center justify-center w-full p-8 lg:w-1/2 bg-slate-50 dark:bg-slate-950">
         <div className="w-full max-w-md animate-slide-up">
           {/* Mobile Logo */}
-          <div className="flex lg:hidden items-center gap-2 mb-8">
-            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+          <div className="flex items-center gap-2 mb-8 lg:hidden">
+            <div className="flex items-center justify-center w-8 h-8 bg-indigo-600 rounded-lg">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
               </svg>
             </div>
-            <span className="font-display font-bold text-indigo-700 dark:text-indigo-400">VoiceRank AI</span>
+            <span className="font-bold text-indigo-700 font-display dark:text-indigo-400">VoiceRank AI</span>
           </div>
 
           <div className="mb-8">
-            <h2 className="text-3xl font-display font-bold text-slate-800 dark:text-white mb-2">Welcome back</h2>
+            <h2 className="mb-2 text-3xl font-bold font-display text-slate-800 dark:text-white">Welcome back</h2>
             <p className="text-slate-500 dark:text-slate-400 font-body">Sign in to your account to continue</p>
           </div>
 
-          {/* Demo Credentials */}
-          <div className="mb-6 p-3 bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800 rounded-xl">
-            <p className="text-indigo-700 dark:text-indigo-300 text-xs font-semibold mb-1">🎭 Demo Credentials</p>
-            <p className="text-indigo-600 dark:text-indigo-400 text-xs">Student: student@demo.com / demo123</p>
-            <p className="text-indigo-600 dark:text-indigo-400 text-xs">Admin: admin@demo.com / demo123</p>
-          </div>
+          
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
@@ -141,7 +136,7 @@ export default function LoginPage() {
             <div>
               <div className="flex justify-between items-center mb-1.5">
                 <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300">Password</label>
-                <button type="button" className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium">
+                <button type="button" className="text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
                   Forgot password?
                 </button>
               </div>
@@ -150,24 +145,24 @@ export default function LoginPage() {
                   name="password" type={showPass ? 'text' : 'password'}
                   placeholder="••••••••"
                   value={form.password} onChange={handleChange}
-                  className="input-field pr-12"
+                  className="pr-12 input-field"
                   autoComplete="current-password"
                 />
                 <button type="button" onClick={() => setShowPass(p => !p)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-indigo-600 transition-colors">
+                  className="absolute transition-colors -translate-y-1/2 right-3 top-1/2 text-slate-400 hover:text-indigo-600">
                   {showPass ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
             </div>
 
             <div className="flex items-center gap-2">
-              <input type="checkbox" id="remember" className="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
+              <input type="checkbox" id="remember" className="w-4 h-4 text-indigo-600 rounded border-slate-300 focus:ring-indigo-500" />
               <label htmlFor="remember" className="text-sm text-slate-600 dark:text-slate-400">Remember me for 30 days</label>
             </div>
 
-            <button type="submit" disabled={loading} className="btn-primary w-full flex items-center justify-center gap-2 text-base">
+            <button type="submit" disabled={loading} className="flex items-center justify-center w-full gap-2 text-base btn-primary">
               {loading ? (
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-white rounded-full border-t-transparent animate-spin" />
               ) : (
                 <><LogIn size={18} /> Sign In</>
               )}
@@ -175,22 +170,22 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-slate-500 dark:text-slate-400 text-sm">
+            <p className="text-sm text-slate-500 dark:text-slate-400">
               Don't have an account?{' '}
-              <Link to="/register" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
+              <Link to="/register" className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">
                 Create one free
               </Link>
             </p>
           </div>
 
           {/* Divider */}
-          <div className="mt-6 flex items-center gap-4">
+          <div className="flex items-center gap-4 mt-6">
             <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
-            <span className="text-slate-400 text-xs">or continue with</span>
+            <span className="text-xs text-slate-400">or continue with</span>
             <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
           </div>
 
-          <div className="mt-4 grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 mt-4">
             {['Google', 'Microsoft'].map(p => (
               <button key={p} type="button"
                 className="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 rounded-xl py-2.5 px-4 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
